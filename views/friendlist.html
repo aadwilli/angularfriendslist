@@ -1,0 +1,36 @@
+<section class="row">
+
+	<div class="col-md-6 col-lg-6">
+	<h3>Enter A friend</h3>
+		<div class="card">
+			<div class="card-block">
+			
+			<form ng-submit="friendlist.addFriend(newFriend)" name="list">
+				<label>Friend Name</label>
+				<p><input type="text" placeholder="Friend Name" ng-model="newFriend.name"></p>
+
+				<label>Friend Age</label>
+				<p><input type="number" placeholder="Friend Age" ng-model="newFriend.age"></p>
+
+				<button type="submit" class="btn btn-info">Add Friend</button>
+			</form>	
+			</div>
+		</div>	
+	</div>
+
+	<div class="col-md-6 col-lg-6">
+		<h3>List of Friends</h3>
+		<div class="card" ng-repeat="friend in friendlist.friends track by $index">
+			<div class="card-block">
+				<ul>
+					<li>
+						<p>{{friendlist.friends.data}}</p>
+						<p>Name - {{friend.name}}</p>
+						<p>Age - {{friend.age}}</p>
+						<button class="btn btn-danger" ng-click="friendlist.removeFriend(friend)"><span class="glyphicon glyphicon-trash"></span></button>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</section>
